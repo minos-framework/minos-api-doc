@@ -1,0 +1,91 @@
+# minos.networks.discovery.clients.abc module
+
+
+### _class_ minos.networks.discovery.clients.abc.DiscoveryClient(host, port)
+Bases: `abc.ABC`
+
+Minos Discovery Client class.
+
+
+#### \__init__(host, port)
+
+#### _property_ route(_: st_ )
+Get the full http route to the discovery.
+
+
+* **Return type**
+
+    `str`
+
+
+
+* **Returns**
+
+    An `str` value.
+
+
+
+#### _abstract async_ subscribe(host, port, name, endpoints, retry_tries=3, retry_delay=5)
+Subscribe to the discovery.
+
+
+* **Parameters**
+
+    
+    * **host** (`str`) – The ip of the microservice to be subscribed.
+
+
+    * **port** (`int`) – The port of the microservice to be subscribed.
+
+
+    * **name** (`str`) – The name of the microservice to be subscribed.
+
+
+    * **endpoints** (`list`[`dict`[`str`, `str`]]) – List of endpoints exposed by the microservice.
+
+
+    * **retry_tries** (`int`) – Number of attempts before raising a failure exception.
+
+
+    * **retry_delay** (`float`) – Seconds to wait between attempts.
+
+
+
+* **Return type**
+
+    `None`
+
+
+
+* **Returns**
+
+    This method does not return anything.
+
+
+
+#### _abstract async_ unsubscribe(name, retry_tries=3, retry_delay=5)
+Unsubscribe from the discovery.
+
+
+* **Parameters**
+
+    
+    * **name** (`str`) – The name of the microservice to be unsubscribed.
+
+
+    * **retry_tries** (`int`) – Number of attempts before raising a failure exception.
+
+
+    * **retry_delay** (`float`) – Seconds to wait between attempts.
+
+
+
+* **Return type**
+
+    `None`
+
+
+
+* **Returns**
+
+    This method does not return anything.

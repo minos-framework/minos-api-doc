@@ -1,0 +1,186 @@
+# minos.networks.requests.abc module
+
+
+### _class_ minos.networks.requests.abc.Request()
+Bases: `abc.ABC`
+
+Request interface.
+
+
+#### _async_ content(\*\*kwargs)
+Get the request content.
+
+
+* **Parameters**
+
+    **kwargs** – Additional named arguments.
+
+
+
+* **Return type**
+
+    `typing.Any`
+
+
+
+* **Returns**
+
+    The request content.
+
+
+
+#### _abstract property_ has_content(_: boo_ )
+Check if the request has content.
+
+
+* **Return type**
+
+    `bool`
+
+
+
+* **Returns**
+
+    `True` if it has content or `False` otherwise.
+
+
+
+#### _abstract property_ has_params(_: boo_ )
+Check if the request has params.
+
+
+* **Return type**
+
+    `bool`
+
+
+
+* **Returns**
+
+    `True` if it has params or `False` otherwise.
+
+
+
+#### _async_ params(\*\*kwargs)
+Get the request params.
+
+
+* **Parameters**
+
+    **kwargs** – Additional named arguments.
+
+
+
+* **Return type**
+
+    `dict`[`str`, `typing.Any`]
+
+
+
+* **Returns**
+
+    The request params.
+
+
+
+#### _abstract property_ user(_: Optional[uuid.UUID_ )
+Returns the UUID of the user making the Request.
+
+
+* **Return type**
+
+    `typing.Optional`[`uuid.UUID`]
+
+
+
+### _class_ minos.networks.requests.abc.Response(data=<object object>, \*, status=200)
+Bases: `object`
+
+Response definition.
+
+
+#### \__init__(data=<object object>, \*, status=200)
+
+#### _async_ content(\*\*kwargs)
+Response content.
+
+
+* **Parameters**
+
+    **kwargs** – Additional named arguments.
+
+
+
+* **Return type**
+
+    `typing.Any`
+
+
+
+* **Returns**
+
+    A list of items.
+
+
+
+#### _property_ has_content(_: boo_ )
+Check if the request has content.
+
+
+* **Return type**
+
+    `bool`
+
+
+
+* **Returns**
+
+    `True` if it has content or `False` otherwise.
+
+
+
+#### _property_ status(_: in_ )
+The status code of the response.
+
+
+* **Return type**
+
+    `int`
+
+
+
+* **Returns**
+
+    An `int` value.
+
+
+
+### _exception_ minos.networks.requests.abc.ResponseException(\*args, status=400)
+Bases: `minos.common.exceptions.MinosException`
+
+Response Exception class.
+
+
+#### \__init__(\*args, status=400)
+
+#### args()
+
+#### _property_ status(_: in_ )
+The status code of the response.
+
+
+* **Return type**
+
+    `int`
+
+
+
+* **Returns**
+
+    An `int` value.
+
+
+
+#### with_traceback()
+Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.
